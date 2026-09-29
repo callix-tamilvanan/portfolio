@@ -37,18 +37,6 @@
 
     .hero { text-align: center; margin-bottom: 100px; }
 
-    .award-photo {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 40px;
-      display: block;
-      border: 2px solid rgba(201, 169, 97, 0.3);
-      box-shadow: 0 0 60px rgba(201, 169, 97, 0.15);
-      filter: contrast(1.05) saturate(0.9);
-    }
-
     .award-placeholder {
       width: 180px;
       height: 180px;
@@ -106,27 +94,128 @@
 
     a:hover { color: #e8e4dc; border-bottom-color: #e8e4dc; }
 
+    /* AWARDS */
+    .award-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .award-card {
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 2px solid #c9a961;
+      border-radius: 4px;
+    }
+
+    .award-card .photos {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .award-card .photos img {
+      width: calc(50% - 6px);
+      border-radius: 4px;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+      filter: contrast(1.05) saturate(0.95);
+    }
+
+    .award-card h3 {
+      font-family: Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #e8e4dc;
+      margin-bottom: 6px;
+    }
+
+    .award-card .award-meta {
+      color: #7a766c;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .award-card .presenter {
+      color: #c9a961;
+    }
+
+    /* MUSIC VIDEO */
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-info .title {
+      color: #e8e4dc;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .video-info .meta {
+      color: #7a766c;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* CREDITS */
     .credits { list-style: none; padding: 0; }
 
     .credits li {
-      padding: 16px 0;
+      padding: 18px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 20px;
     }
 
     .credits li:last-child { border-bottom: none; }
-    .credits .title { color: #e8e4dc; font-size: 1rem; flex: 1; }
-    .credits .role {
-      color: #7a766c;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-align: right;
+
+    .credits .title {
+      color: #e8e4dc;
+      font-size: 1.05rem;
+      display: block;
+      margin-bottom: 6px;
     }
 
+    .credits .meta {
+      color: #7a766c;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .credits .meta .channel { color: #c9a961; }
+    .credits .meta .role { color: #8a8478; }
+    .credits .meta .period { color: #6a665c; }
+
+    .credit-group-label {
+      font-size: 0.7rem;
+      color: #6a665c;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed rgba(201, 169, 97, 0.15);
+    }
+
+    .credit-group-label:first-child { margin-top: 0; }
+
+    /* PROJECT */
     .project {
       padding: 24px;
       background: rgba(255, 255, 255, 0.02);
@@ -144,6 +233,7 @@
 
     .project p { font-size: 0.95rem; }
 
+    /* CONTACT */
     .contact-links { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 16px; }
     .contact-links a { border-bottom: none; padding-bottom: 2px; border-bottom: 1px solid rgba(201, 169, 97, 0.4); }
 
@@ -160,8 +250,7 @@
     @media (max-width: 600px) {
       h1 { font-size: 2.5rem; }
       .container { padding: 60px 20px 40px; }
-      .credits li { flex-direction: column; gap: 4px; }
-      .credits .role { text-align: left; }
+      .award-card .photos img { width: 100%; }
     }
   </style>
 </head>
@@ -176,59 +265,183 @@
     <section>
       <h2>About</h2>
       <p>
-        6+ years in the Tamil media and entertainment industry. I hold a Bachelor's degree in
-        Visual Communication (BSc Viscom, 2017–2020) and have worked across television and film
-        in multiple roles — Cinematographer, Assistant Director, Associate Director, and
-        Audio Engineer.
+        I started my career as an <strong>Audio Engineer</strong> in 2019, working on Tamil
+        television shows for Vijay TV, Sun TV, Zee Thamizh, and Puthiya Thalaimurai through
+        Pro Media MJR Lights and Sounds.
       </p>
       <p>
-        I'm currently building <strong>Black Pulse</strong> — a free and open-source music
-        player for Android.
+        When COVID lockdowns shut down production, I pivoted to <strong>Assistant
+        Direction</strong> — first on Raj TV's Pongal special, then Captain TV's
+        <em>Kolaru Kudumbam</em>. In 2023 I joined Makkal TV's <em>Punnagai Mannargal</em>
+        as Assistant Director, moved into Associate Direction for two months, and by 2024
+        had grown into the role of <strong>Cinematographer</strong> on the same production.
+      </p>
+      <p>
+        Alongside television, I've worked as a freelance photographer since 2019, with a
+        focus on <strong>candid photography</strong>. I also work in
+        <strong>event management</strong> — coordinating DJ performances and sound system
+        setups — and I do <strong>pyrotechnics</strong> for stage shows.
+      </p>
+      <p>
+        I'm a fast learner who adapts quickly to any situation, and I'm comfortable
+        leading and managing a team. I hold a Bachelor's degree in Visual Communication
+        (BSc Viscom, 2017–2020).
+      </p>
+      <p>
+        I'm currently building <strong>Black Pulse</strong> — a free and open-source
+        music player for Android.
       </p>
     </section>
 
     <section>
+      <h2>Awards</h2>
+      <div class="award-grid">
+        <div class="award-card">
+          <div class="photos">
+            <img src="award-highwoods-celeb.jpeg" alt="Tamilvanan with Nalini and Vaiyapuri at the Highwoods Entertainment awards">
+            <img src="award-highwoods-trophy.jpeg" alt="Highwoods Entertainment award trophy">
+          </div>
+          <h3>Emerging Cinematographer of the Year</h3>
+          <div class="award-meta">
+            <span class="presenter">Highwoods Entertainment</span> · Television<br>
+            Presented by actress Nalini and actor Vaiyapuri
+          </div>
+        </div>
+
+        <div class="award-card">
+          <div class="photos">
+            <img src="award-shanmuga-stage.jpeg" alt="Tamilvanan receiving the Shanmuga Hospital and Trust award on stage">
+            <img src="award-shanmuga-trophy.jpeg" alt="Shanmuga Hospital and Trust award trophy">
+          </div>
+          <h3>Television Cinematographer</h3>
+          <div class="award-meta">
+            <span class="presenter">Shanmuga Hospital and Trust</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Direction</h2>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/kKxjJwRL3eQ"
+          title="Kanmaniye — UNICORN TAMIL ORGINALS"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-info">
+        <div class="title">கண்மணியே — Kanmaniye</div>
+        <div class="meta">UNICORN TAMIL ORGINALS · Music Video · 2024 · Director</div>
+      </div>
+    </section>
+
+    <section>
       <h2>Selected Credits</h2>
+
+      <div class="credit-group-label">Cinematography & Direction</div>
       <ul class="credits">
         <li>
           <span class="title">Punnagai Mannargal (Tele Film)</span>
-          <span class="role">Makkal TV · Cinematographer, Associate Director</span>
+          <div class="meta">
+            <span class="channel">Makkal TV</span>
+            <span class="role">Cinematographer · Associate Director · Assistant Director</span>
+            <span class="period">Sep 2023 – Jan 2026</span>
+          </div>
         </li>
         <li>
           <span class="title">Punnagai Mannargal — Aduthathu Yaar...?</span>
-          <span class="role">Makkal TV · Assistant Director</span>
+          <div class="meta">
+            <span class="channel">Makkal TV</span>
+            <span class="role">Assistant Director</span>
+            <span class="period">Sep 2023 – Jan 2026</span>
+          </div>
         </li>
         <li>
           <span class="title">Kolaru Kudumbam</span>
-          <span class="role">Captain TV · Assistant Director</span>
+          <div class="meta">
+            <span class="channel">Captain TV</span>
+            <span class="role">Assistant Director</span>
+            <span class="period">Nov 2022 – Feb 2023</span>
+          </div>
         </li>
         <li>
           <span class="title">Pongal Sirappu Pattimandram & Classical Dance</span>
-          <span class="role">Raj TV · Production</span>
+          <div class="meta">
+            <span class="channel">Raj TV</span>
+            <span class="role">Assistant Director</span>
+            <span class="period">Dec 2021 – Jan 2022</span>
+          </div>
         </li>
+      </ul>
+
+      <div class="credit-group-label">Audio Engineering — via Pro Media MJR Lights and Sounds</div>
+      <ul class="credits">
         <li>
           <span class="title">Kalakka Povathu Yaar S9</span>
-          <span class="role">Vijay TV</span>
+          <div class="meta">
+            <span class="channel">Vijay TV</span>
+            <span class="role">Audio Engineer</span>
+            <span class="period">2019 – 2020</span>
+          </div>
         </li>
         <li>
           <span class="title">Sun Singer S2</span>
-          <span class="role">Sun TV</span>
+          <div class="meta">
+            <span class="channel">Sun TV</span>
+            <span class="role">Audio Engineer</span>
+            <span class="period">2019 – 2020</span>
+          </div>
         </li>
         <li>
           <span class="title">Sa Re Ga Ma Pa Seniors S2</span>
-          <span class="role">Zee Thamizh</span>
+          <div class="meta">
+            <span class="channel">Zee Thamizh</span>
+            <span class="role">Audio Engineer</span>
+            <span class="period">2019 – 2020</span>
+          </div>
         </li>
         <li>
-          <span class="title">Kudumba Viruthugal 2019 & Jill Jung Juk</span>
-          <span class="role">Zee Thamizh</span>
+          <span class="title">Zee Thamizh Kudumba Viruthugal (Award Show)</span>
+          <div class="meta">
+            <span class="channel">Zee Thamizh</span>
+            <span class="role">Audio Engineer</span>
+            <span class="period">2019 – 2020</span>
+          </div>
         </li>
         <li>
-          <span class="title">Puthiya Thalaimurai Thamizhan Viruthugal 2019</span>
-          <span class="role">Puthiya Thalaimurai</span>
+          <span class="title">Jill Jung Juk</span>
+          <div class="meta">
+            <span class="channel">Zee Thamizh</span>
+            <span class="role">Audio Engineer</span>
+            <span class="period">2019 – 2020</span>
+          </div>
         </li>
         <li>
-          <span class="title">Freelance Photography</span>
-          <span class="role">6+ years · Chennai</span>
+          <span class="title">Thamizhan Viruthugal (Award Show)</span>
+          <div class="meta">
+            <span class="channel">Puthiya Thalaimurai TV</span>
+            <span class="role">Audio Engineer</span>
+            <span class="period">2019 – 2020</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="credit-group-label">Other Work</div>
+      <ul class="credits">
+        <li>
+          <span class="title">Freelance Photographer · Candid Photography</span>
+          <div class="meta">
+            <span class="channel">Chennai, India</span>
+            <span class="period">2019 – Present</span>
+          </div>
+        </li>
+        <li>
+          <span class="title">Event Management · Pyrotechnics</span>
+          <div class="meta">
+            <span class="channel">DJ performance coordination · Stage pyro</span>
+          </div>
         </li>
       </ul>
     </section>
