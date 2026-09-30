@@ -14,12 +14,12 @@
     :root {
       --bg: #08080a;
       --bg-2: #0f0f12;
-      --text: #ebe6dc;
-      --muted: #a8a39a;
-      --dim: #6a665c;
-      --gold: #c9a961;
-      --gold-bright: #e0bd7a;
-      --gold-dim: rgba(201, 169, 97, 0.18);
+      --text: #ece7dd;
+      --muted: #b3aea4;
+      --dim: #736e63;
+      --gold: #d99a8a;              /* soft rose-copper */
+      --gold-bright: #ecb4a3;
+      --gold-dim: rgba(217, 154, 138, 0.2);
     }
 
     html { scroll-behavior: smooth; }
@@ -31,8 +31,9 @@
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
-      line-height: 1.65;
+      line-height: 1.7;
       font-weight: 300;
+      font-size: 17px;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -56,20 +57,20 @@
       80% { transform: translate(2%, 1%); }
     }
 
-    /* Ambient light beams */
+    /* Ambient light */
     body::after {
       content: "";
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse 800px 400px at 20% 0%, rgba(201, 169, 97, 0.08), transparent 60%),
-        radial-gradient(ellipse 600px 500px at 85% 100%, rgba(201, 169, 97, 0.05), transparent 60%);
+        radial-gradient(ellipse 800px 400px at 20% 0%, rgba(217, 154, 138, 0.09), transparent 60%),
+        radial-gradient(ellipse 600px 500px at 85% 100%, rgba(217, 154, 138, 0.05), transparent 60%);
       z-index: 0;
       pointer-events: none;
     }
 
     .container {
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 100px 28px 80px;
       position: relative;
@@ -84,7 +85,6 @@
       padding-top: 40px;
     }
 
-    /* Film-strip ticker at top */
     .filmstrip {
       position: absolute;
       top: -60px;
@@ -106,7 +106,6 @@
 
     .filmstrip span:nth-child(even) { opacity: 0.15; }
 
-    /* Portrait */
     .portrait-wrap {
       position: relative;
       width: 220px;
@@ -129,7 +128,7 @@
       content: "";
       position: absolute;
       inset: -40px;
-      border: 1px solid rgba(201, 169, 97, 0.08);
+      border: 1px solid rgba(217, 154, 138, 0.08);
       border-radius: 50%;
     }
 
@@ -143,8 +142,8 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid rgba(201, 169, 97, 0.4);
-      box-shadow: 0 0 80px rgba(201, 169, 97, 0.2);
+      border: 2px solid rgba(217, 154, 138, 0.45);
+      box-shadow: 0 0 80px rgba(217, 154, 138, 0.22);
       filter: contrast(1.08) saturate(0.9) brightness(0.95);
       position: relative;
       z-index: 2;
@@ -160,20 +159,20 @@
       background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
       font-family: "Cormorant Garamond", Georgia, serif;
       font-size: 80px;
-      color: rgba(201, 169, 97, 0.6);
-      border: 2px solid rgba(201, 169, 97, 0.4);
-      box-shadow: 0 0 80px rgba(201, 169, 97, 0.2);
+      color: rgba(217, 154, 138, 0.65);
+      border: 2px solid rgba(217, 154, 138, 0.45);
+      box-shadow: 0 0 80px rgba(217, 154, 138, 0.22);
       position: relative;
       z-index: 2;
     }
 
     h1 {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-size: clamp(3.4rem, 9vw, 6rem);
       font-weight: 300;
       letter-spacing: 0.04em;
       color: var(--text);
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       line-height: 1;
       opacity: 0;
       animation: riseUp 1.2s 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
@@ -185,7 +184,7 @@
     }
 
     .roles {
-      font-size: 0.85rem;
+      font-size: 1rem;
       color: var(--gold);
       text-transform: uppercase;
       letter-spacing: 0.45em;
@@ -195,10 +194,10 @@
     }
 
     .tagline {
-      max-width: 520px;
-      margin: 40px auto 0;
+      max-width: 580px;
+      margin: 44px auto 0;
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.25rem;
+      font-size: 1.45rem;
       font-style: italic;
       color: var(--muted);
       line-height: 1.6;
@@ -218,7 +217,7 @@
 
     /* ============ SECTIONS ============ */
     section {
-      margin-bottom: 110px;
+      margin-bottom: 120px;
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.9s ease, transform 0.9s ease;
@@ -231,12 +230,12 @@
 
     h2 {
       font-family: "Inter", sans-serif;
-      font-size: 0.7rem;
+      font-size: 0.85rem;
       color: var(--gold);
       text-transform: uppercase;
       letter-spacing: 0.5em;
       font-weight: 500;
-      margin-bottom: 36px;
+      margin-bottom: 40px;
       display: flex;
       align-items: center;
       gap: 20px;
@@ -259,8 +258,8 @@
 
     p {
       color: var(--muted);
-      font-size: 1.05rem;
-      margin-bottom: 20px;
+      font-size: 1.15rem;
+      margin-bottom: 22px;
       line-height: 1.85;
       font-weight: 300;
     }
@@ -271,7 +270,7 @@
     a {
       color: var(--gold);
       text-decoration: none;
-      border-bottom: 1px solid rgba(201, 169, 97, 0.4);
+      border-bottom: 1px solid rgba(217, 154, 138, 0.4);
       transition: all 0.3s;
       padding-bottom: 1px;
     }
@@ -288,12 +287,12 @@
 
     .about-intro {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.6rem;
+      font-size: 1.85rem;
       font-weight: 400;
       font-style: italic;
       color: var(--text);
       line-height: 1.4;
-      margin-bottom: 28px;
+      margin-bottom: 30px;
     }
 
     .about-intro .accent { color: var(--gold); }
@@ -301,9 +300,9 @@
     .signature-traits {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin-top: 32px;
-      padding-top: 28px;
+      gap: 18px;
+      margin-top: 34px;
+      padding-top: 30px;
       border-top: 1px solid var(--gold-dim);
     }
 
@@ -311,7 +310,7 @@
       display: flex;
       align-items: baseline;
       gap: 14px;
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       color: var(--muted);
     }
 
@@ -321,19 +320,19 @@
       font-weight: 300;
     }
 
-    /* ============ AWARDS — Film frame ============ */
+    /* ============ AWARDS ============ */
     .award-card {
       margin-bottom: 48px;
-      padding: 32px;
-      background: linear-gradient(135deg, rgba(201, 169, 97, 0.03), rgba(255, 255, 255, 0.01));
-      border: 1px solid rgba(201, 169, 97, 0.15);
+      padding: 36px;
+      background: linear-gradient(135deg, rgba(217, 154, 138, 0.03), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(217, 154, 138, 0.15);
       border-radius: 2px;
       position: relative;
       overflow: hidden;
       transition: border-color 0.4s;
     }
 
-    .award-card:hover { border-color: rgba(201, 169, 97, 0.35); }
+    .award-card:hover { border-color: rgba(217, 154, 138, 0.38); }
 
     .award-card::before,
     .award-card::after {
@@ -352,38 +351,56 @@
     .award-card::before { top: 0; }
     .award-card::after { bottom: 0; }
 
+    /* New award header layout */
+    .award-header {
+      margin-bottom: 22px;
+    }
+
     .award-year {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 3.5rem;
-      font-weight: 300;
+      font-size: 1.6rem;
+      font-weight: 400;
       font-style: italic;
       color: var(--gold);
-      opacity: 0.35;
       line-height: 1;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
     }
 
-    .award-card h3 {
+    .award-title-line {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.75rem;
+      font-size: 2rem;
       font-weight: 400;
       color: var(--text);
-      margin-bottom: 12px;
       line-height: 1.25;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
     }
 
-    .award-org {
+    .award-title-line .category {
       color: var(--gold);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      margin-bottom: 20px;
-      font-weight: 400;
+      font-style: italic;
+      text-transform: lowercase;
+    }
+
+    .award-title-line .dot {
+      color: var(--dim);
+      margin: 0 6px;
+      font-style: normal;
+    }
+
+    .award-org-line {
+      color: var(--gold);
+      font-size: 1.05rem;
+      font-style: italic;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      letter-spacing: 0.02em;
+      margin-bottom: 22px;
     }
 
     .award-card .award-info p {
-      font-size: 0.95rem;
-      margin-bottom: 24px;
+      font-size: 1.05rem;
+      margin-bottom: 26px;
     }
 
     .award-photos {
@@ -394,18 +411,18 @@
 
     .award-photos img {
       width: 100%;
-      height: 260px;
+      height: 280px;
       object-fit: contain;
       background: #050505;
       border-radius: 2px;
-      border: 1px solid rgba(201, 169, 97, 0.2);
+      border: 1px solid rgba(217, 154, 138, 0.2);
       filter: contrast(1.05) saturate(0.92);
       transition: filter 0.5s, border-color 0.5s;
     }
 
     .award-photos img:hover {
       filter: contrast(1.1) saturate(1) brightness(1.05);
-      border-color: rgba(201, 169, 97, 0.5);
+      border-color: rgba(217, 154, 138, 0.55);
     }
 
     /* ============ VIDEO ============ */
@@ -413,10 +430,10 @@
       position: relative;
       width: 100%;
       padding-bottom: 56.25%;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
       border-radius: 2px;
       overflow: hidden;
-      border: 1px solid rgba(201, 169, 97, 0.2);
+      border: 1px solid rgba(217, 154, 138, 0.2);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
     }
 
@@ -430,7 +447,7 @@
 
     .video-meta {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.15rem;
+      font-size: 1.3rem;
       color: var(--muted);
       font-style: italic;
       display: flex;
@@ -443,7 +460,7 @@
       color: var(--gold);
       font-style: normal;
       font-family: "Inter", sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.25em;
     }
@@ -453,7 +470,7 @@
     /* ============ TIMELINE ============ */
     .timeline {
       position: relative;
-      padding-left: 36px;
+      padding-left: 40px;
       margin-top: 20px;
     }
 
@@ -469,56 +486,57 @@
 
     .tl-item {
       position: relative;
-      margin-bottom: 48px;
+      margin-bottom: 52px;
     }
 
     .tl-item::before {
       content: "";
       position: absolute;
-      left: -32px;
-      top: 8px;
-      width: 9px;
-      height: 9px;
+      left: -36px;
+      top: 9px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: var(--gold);
-      box-shadow: 0 0 0 4px var(--bg), 0 0 20px rgba(201, 169, 97, 0.6);
+      box-shadow: 0 0 0 4px var(--bg), 0 0 20px rgba(217, 154, 138, 0.6);
     }
 
     .tl-period {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.05rem;
+      font-size: 1.2rem;
       font-style: italic;
       color: var(--gold);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .tl-title {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.35rem;
+      font-size: 1.6rem;
       color: var(--text);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       font-weight: 400;
+      line-height: 1.3;
     }
 
     .tl-desc {
-      font-size: 0.92rem;
+      font-size: 1.05rem;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: 0;
     }
 
     /* ============ SERVICES ============ */
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
       margin-top: 20px;
     }
 
     .service {
-      padding: 24px 20px;
+      padding: 26px 22px;
       background: rgba(255, 255, 255, 0.015);
-      border: 1px solid rgba(201, 169, 97, 0.12);
+      border: 1px solid rgba(217, 154, 138, 0.12);
       border-radius: 2px;
       transition: all 0.4s;
       position: relative;
@@ -537,25 +555,25 @@
     }
 
     .service:hover {
-      background: rgba(201, 169, 97, 0.04);
-      border-color: rgba(201, 169, 97, 0.3);
+      background: rgba(217, 154, 138, 0.04);
+      border-color: rgba(217, 154, 138, 0.32);
     }
 
     .service:hover::before { width: 100%; }
 
     .service-num {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-style: italic;
       color: var(--gold);
-      opacity: 0.6;
+      opacity: 0.65;
       margin-bottom: 8px;
       display: block;
     }
 
     .service-name {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.25rem;
+      font-size: 1.45rem;
       color: var(--text);
       font-weight: 400;
       line-height: 1.3;
@@ -563,9 +581,9 @@
 
     /* ============ DEVELOPER ============ */
     .project {
-      padding: 36px;
-      background: linear-gradient(135deg, rgba(201, 169, 97, 0.04), rgba(255, 255, 255, 0.01));
-      border: 1px solid rgba(201, 169, 97, 0.15);
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(217, 154, 138, 0.04), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(217, 154, 138, 0.15);
       border-radius: 2px;
       position: relative;
     }
@@ -573,38 +591,38 @@
     .project::before {
       content: "◆";
       position: absolute;
-      top: -10px;
+      top: -12px;
       left: 36px;
       background: var(--bg);
       color: var(--gold);
       padding: 0 12px;
-      font-size: 0.85rem;
+      font-size: 0.95rem;
     }
 
     .project h3 {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.85rem;
+      font-size: 2.1rem;
       font-weight: 400;
       color: var(--text);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       letter-spacing: 0.01em;
     }
 
-    .project p { font-size: 0.98rem; }
+    .project p { font-size: 1.08rem; }
 
     /* ============ CONTACT ============ */
     .contact-links {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
-      margin-top: 24px;
+      margin-top: 26px;
     }
 
     .contact-links a {
-      padding: 12px 26px;
+      padding: 14px 30px;
       border: 1px solid var(--gold-dim);
       border-radius: 40px;
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       text-transform: uppercase;
       letter-spacing: 0.2em;
       transition: all 0.35s;
@@ -616,44 +634,47 @@
       color: var(--bg);
       border-color: var(--gold);
       transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(201, 169, 97, 0.2);
+      box-shadow: 0 10px 30px rgba(217, 154, 138, 0.25);
     }
 
     /* ============ FOOTER ============ */
     .footer {
-      margin-top: 120px;
-      padding-top: 40px;
+      margin-top: 130px;
+      padding-top: 44px;
       border-top: 1px solid var(--gold-dim);
       text-align: center;
       color: var(--dim);
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1rem;
+      font-size: 1.15rem;
       font-style: italic;
       letter-spacing: 0.05em;
     }
 
     .footer .film-end {
       display: inline-block;
-      margin-top: 12px;
-      font-size: 0.7rem;
+      margin-top: 14px;
+      font-size: 0.85rem;
       font-family: "Inter", sans-serif;
       font-style: normal;
       text-transform: uppercase;
       letter-spacing: 0.4em;
       color: var(--gold);
-      opacity: 0.5;
+      opacity: 0.6;
     }
 
     /* ============ MOBILE ============ */
     @media (max-width: 760px) {
+      body { font-size: 16px; }
       .container { padding: 60px 22px 50px; }
       .hero { margin-bottom: 90px; }
       .about-grid { grid-template-columns: 1fr; gap: 20px; }
       .award-photos { grid-template-columns: 1fr; }
-      .award-photos img { height: 280px; }
-      .award-year { font-size: 2.5rem; }
-      .award-card h3 { font-size: 1.4rem; }
-      section { margin-bottom: 80px; }
+      .award-photos img { height: 300px; }
+      .award-year { font-size: 1.4rem; }
+      .award-title-line { font-size: 1.6rem; }
+      .about-intro { font-size: 1.5rem; }
+      .tl-title { font-size: 1.35rem; }
+      section { margin-bottom: 85px; }
       .contact-links a { flex: 1; text-align: center; }
     }
 
@@ -729,9 +750,13 @@
       <h2>Awards</h2>
 
       <div class="award-card">
-        <div class="award-year">2025</div>
-        <h3>Emerging Cinematographer of the Year</h3>
-        <div class="award-org">Highwoods Entertainment · Television</div>
+        <div class="award-header">
+          <div class="award-year">2025</div>
+          <div class="award-title-line">
+            Emerging Cinematographer of the Year<span class="dot">·</span><span class="category">television</span>
+          </div>
+          <div class="award-org-line">Highwoods Entertainment</div>
+        </div>
         <div class="award-info">
           <p>Presented by actress Nalini and actor Vaiyapuri for outstanding work in Tamil television.</p>
         </div>
@@ -742,9 +767,13 @@
       </div>
 
       <div class="award-card">
-        <div class="award-year">2025</div>
-        <h3>Television Cinematographer</h3>
-        <div class="award-org">Shanmuga Hospital and Trust</div>
+        <div class="award-header">
+          <div class="award-year">2025</div>
+          <div class="award-title-line">
+            Television Cinematographer
+          </div>
+          <div class="award-org-line">Shanmuga Hospital and Trust</div>
+        </div>
         <div class="award-info">
           <p>Recognition for cinematography work in Tamil television.</p>
         </div>
@@ -778,7 +807,7 @@
       </div>
     </section>
 
-    <!-- ============ JOURNEY / TIMELINE ============ -->
+    <!-- ============ JOURNEY ============ -->
     <section>
       <h2>The Journey</h2>
 
@@ -942,7 +971,6 @@
   </div>
 
   <script>
-    // Fade-in sections on scroll
     const sections = document.querySelectorAll('section');
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
