@@ -13,13 +13,13 @@
 
     :root {
       --bg: #08080a;
-      --bg-2: #0f0f12;
-      --text: #ece7dd;
-      --muted: #b3aea4;
-      --dim: #736e63;
-      --gold: #d99a8a;              /* soft rose-copper */
-      --gold-bright: #ecb4a3;
-      --gold-dim: rgba(217, 154, 138, 0.2);
+      --text: #ebe6dc;
+      --muted: #b6b0a4;
+      --dim: #75706a;
+      --accent: #d97757;          /* warm copper/rose */
+      --accent-bright: #e8926f;
+      --accent-dim: rgba(217, 119, 87, 0.18);
+      --accent-glow: rgba(217, 119, 87, 0.25);
     }
 
     html { scroll-behavior: smooth; }
@@ -57,20 +57,20 @@
       80% { transform: translate(2%, 1%); }
     }
 
-    /* Ambient light */
+    /* Ambient light beams */
     body::after {
       content: "";
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse 800px 400px at 20% 0%, rgba(217, 154, 138, 0.09), transparent 60%),
-        radial-gradient(ellipse 600px 500px at 85% 100%, rgba(217, 154, 138, 0.05), transparent 60%);
+        radial-gradient(ellipse 800px 400px at 20% 0%, rgba(217, 119, 87, 0.09), transparent 60%),
+        radial-gradient(ellipse 600px 500px at 85% 100%, rgba(217, 119, 87, 0.06), transparent 60%);
       z-index: 0;
       pointer-events: none;
     }
 
     .container {
-      max-width: 980px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 100px 28px 80px;
       position: relative;
@@ -99,8 +99,8 @@
     .filmstrip span {
       width: 32px;
       height: 20px;
-      background: var(--gold);
-      opacity: 0.35;
+      background: var(--accent);
+      opacity: 0.4;
       border-radius: 1px;
     }
 
@@ -108,9 +108,9 @@
 
     .portrait-wrap {
       position: relative;
-      width: 220px;
-      height: 220px;
-      margin: 0 auto 48px;
+      width: 240px;
+      height: 240px;
+      margin: 0 auto 52px;
       opacity: 0;
       animation: scaleIn 1.4s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     }
@@ -119,7 +119,7 @@
       content: "";
       position: absolute;
       inset: -20px;
-      border: 1px solid var(--gold-dim);
+      border: 1px solid var(--accent-dim);
       border-radius: 50%;
       animation: pulse 4s ease-in-out infinite;
     }
@@ -128,7 +128,7 @@
       content: "";
       position: absolute;
       inset: -40px;
-      border: 1px solid rgba(217, 154, 138, 0.08);
+      border: 1px solid rgba(217, 119, 87, 0.08);
       border-radius: 50%;
     }
 
@@ -142,8 +142,8 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid rgba(217, 154, 138, 0.45);
-      box-shadow: 0 0 80px rgba(217, 154, 138, 0.22);
+      border: 2px solid rgba(217, 119, 87, 0.45);
+      box-shadow: 0 0 80px var(--accent-glow);
       filter: contrast(1.08) saturate(0.9) brightness(0.95);
       position: relative;
       z-index: 2;
@@ -158,21 +158,21 @@
       justify-content: center;
       background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 80px;
-      color: rgba(217, 154, 138, 0.65);
-      border: 2px solid rgba(217, 154, 138, 0.45);
-      box-shadow: 0 0 80px rgba(217, 154, 138, 0.22);
+      font-size: 90px;
+      color: rgba(217, 119, 87, 0.65);
+      border: 2px solid rgba(217, 119, 87, 0.45);
+      box-shadow: 0 0 80px var(--accent-glow);
       position: relative;
       z-index: 2;
     }
 
     h1 {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(3.4rem, 9vw, 6rem);
+      font-size: clamp(3.5rem, 9vw, 6rem);
       font-weight: 300;
       letter-spacing: 0.04em;
       color: var(--text);
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       line-height: 1;
       opacity: 0;
       animation: riseUp 1.2s 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
@@ -180,14 +180,14 @@
 
     h1 .accent {
       font-style: italic;
-      color: var(--gold);
+      color: var(--accent);
     }
 
     .roles {
       font-size: 1rem;
-      color: var(--gold);
+      color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 0.45em;
+      letter-spacing: 0.42em;
       font-weight: 400;
       opacity: 0;
       animation: riseUp 1.2s 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
@@ -197,7 +197,7 @@
       max-width: 580px;
       margin: 44px auto 0;
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       font-style: italic;
       color: var(--muted);
       line-height: 1.6;
@@ -231,7 +231,7 @@
     h2 {
       font-family: "Inter", sans-serif;
       font-size: 0.85rem;
-      color: var(--gold);
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.5em;
       font-weight: 500;
@@ -243,45 +243,45 @@
 
     h2::before {
       content: "";
-      width: 40px;
+      width: 44px;
       height: 1px;
-      background: var(--gold);
-      opacity: 0.5;
+      background: var(--accent);
+      opacity: 0.6;
     }
 
     h2::after {
       content: "";
       flex: 1;
       height: 1px;
-      background: linear-gradient(to right, var(--gold-dim), transparent);
+      background: linear-gradient(to right, var(--accent-dim), transparent);
     }
 
     p {
       color: var(--muted);
       font-size: 1.15rem;
       margin-bottom: 22px;
-      line-height: 1.85;
+      line-height: 1.9;
       font-weight: 300;
     }
 
     p strong { color: var(--text); font-weight: 500; }
-    p em { color: var(--gold); font-style: italic; }
+    p em { color: var(--accent); font-style: italic; }
 
     a {
-      color: var(--gold);
+      color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid rgba(217, 154, 138, 0.4);
+      border-bottom: 1px solid rgba(217, 119, 87, 0.45);
       transition: all 0.3s;
       padding-bottom: 1px;
     }
 
-    a:hover { color: var(--gold-bright); border-bottom-color: var(--gold-bright); }
+    a:hover { color: var(--accent-bright); border-bottom-color: var(--accent-bright); }
 
     /* ============ ABOUT ============ */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      gap: 56px;
       align-items: start;
     }
 
@@ -292,47 +292,66 @@
       font-style: italic;
       color: var(--text);
       line-height: 1.4;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
     }
 
-    .about-intro .accent { color: var(--gold); }
+    .about-intro .accent { color: var(--accent); }
+
+    .degree {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 20px;
+      border-left: 2px solid var(--accent);
+      background: rgba(217, 119, 87, 0.05);
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .degree strong { color: var(--text); font-weight: 500; }
+    .degree .deg-year {
+      color: var(--accent);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: 1.05rem;
+    }
 
     .signature-traits {
       display: flex;
       flex-direction: column;
       gap: 18px;
-      margin-top: 34px;
-      padding-top: 30px;
-      border-top: 1px solid var(--gold-dim);
+      margin-top: 36px;
+      padding-top: 32px;
+      border-top: 1px solid var(--accent-dim);
     }
 
     .signature-traits div {
       display: flex;
       align-items: baseline;
-      gap: 14px;
+      gap: 16px;
       font-size: 1.05rem;
       color: var(--muted);
     }
 
     .signature-traits div::before {
       content: "—";
-      color: var(--gold);
+      color: var(--accent);
       font-weight: 300;
     }
 
     /* ============ AWARDS ============ */
     .award-card {
-      margin-bottom: 48px;
+      margin-bottom: 56px;
       padding: 36px;
-      background: linear-gradient(135deg, rgba(217, 154, 138, 0.03), rgba(255, 255, 255, 0.01));
-      border: 1px solid rgba(217, 154, 138, 0.15);
+      background: linear-gradient(135deg, rgba(217, 119, 87, 0.04), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(217, 119, 87, 0.18);
       border-radius: 2px;
       position: relative;
       overflow: hidden;
       transition: border-color 0.4s;
     }
 
-    .award-card:hover { border-color: rgba(217, 154, 138, 0.38); }
+    .award-card:hover { border-color: rgba(217, 119, 87, 0.4); }
 
     .award-card::before,
     .award-card::after {
@@ -342,60 +361,72 @@
       height: 8px;
       background-image: repeating-linear-gradient(
         to right,
-        var(--gold) 0, var(--gold) 6px,
+        var(--accent) 0, var(--accent) 6px,
         transparent 6px, transparent 16px
       );
-      opacity: 0.35;
+      opacity: 0.4;
     }
 
     .award-card::before { top: 0; }
     .award-card::after { bottom: 0; }
 
-    /* New award header layout */
+    /* Award header layout */
     .award-header {
-      margin-bottom: 22px;
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
     }
 
     .award-year {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.6rem;
-      font-weight: 400;
+      font-size: 3rem;
+      font-weight: 300;
       font-style: italic;
-      color: var(--gold);
+      color: var(--accent);
       line-height: 1;
-      margin-bottom: 10px;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.02em;
     }
 
-    .award-title-line {
+    .award-title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .award-card h3 {
       font-family: "Cormorant Garamond", Georgia, serif;
       font-size: 2rem;
       font-weight: 400;
       color: var(--text);
-      line-height: 1.25;
-      margin-bottom: 8px;
+      line-height: 1.2;
       letter-spacing: 0.01em;
     }
 
-    .award-title-line .category {
-      color: var(--gold);
-      font-style: italic;
-      text-transform: lowercase;
-    }
-
-    .award-title-line .dot {
-      color: var(--dim);
-      margin: 0 6px;
-      font-style: normal;
-    }
-
-    .award-org-line {
-      color: var(--gold);
-      font-size: 1.05rem;
-      font-style: italic;
-      font-family: "Cormorant Garamond", Georgia, serif;
+    .award-sub {
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
       letter-spacing: 0.02em;
-      margin-bottom: 22px;
+    }
+
+    .award-sub .dot {
+      color: var(--accent);
+      margin: 0 8px;
+      opacity: 0.7;
+    }
+
+    .award-org {
+      color: var(--accent);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin-bottom: 26px;
+      font-weight: 500;
+      display: block;
+      padding-left: 4px;
     }
 
     .award-card .award-info p {
@@ -411,18 +442,18 @@
 
     .award-photos img {
       width: 100%;
-      height: 280px;
+      height: 260px;
       object-fit: contain;
       background: #050505;
       border-radius: 2px;
-      border: 1px solid rgba(217, 154, 138, 0.2);
+      border: 1px solid rgba(217, 119, 87, 0.22);
       filter: contrast(1.05) saturate(0.92);
       transition: filter 0.5s, border-color 0.5s;
     }
 
     .award-photos img:hover {
       filter: contrast(1.1) saturate(1) brightness(1.05);
-      border-color: rgba(217, 154, 138, 0.55);
+      border-color: rgba(217, 119, 87, 0.55);
     }
 
     /* ============ VIDEO ============ */
@@ -430,10 +461,10 @@
       position: relative;
       width: 100%;
       padding-bottom: 56.25%;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
       border-radius: 2px;
       overflow: hidden;
-      border: 1px solid rgba(217, 154, 138, 0.2);
+      border: 1px solid rgba(217, 119, 87, 0.22);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
     }
 
@@ -457,12 +488,13 @@
     }
 
     .video-meta .role {
-      color: var(--gold);
+      color: var(--accent);
       font-style: normal;
       font-family: "Inter", sans-serif;
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.25em;
+      font-weight: 500;
     }
 
     .video-meta .sep { color: var(--dim); }
@@ -481,7 +513,7 @@
       top: 8px;
       bottom: 8px;
       width: 1px;
-      background: linear-gradient(to bottom, transparent, var(--gold-dim) 10%, var(--gold-dim) 90%, transparent);
+      background: linear-gradient(to bottom, transparent, var(--accent-dim) 10%, var(--accent-dim) 90%, transparent);
     }
 
     .tl-item {
@@ -492,21 +524,21 @@
     .tl-item::before {
       content: "";
       position: absolute;
-      left: -36px;
+      left: -35px;
       top: 9px;
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 0 4px var(--bg), 0 0 20px rgba(217, 154, 138, 0.6);
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--bg), 0 0 22px var(--accent-glow);
     }
 
     .tl-period {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-style: italic;
-      color: var(--gold);
-      margin-bottom: 8px;
+      color: var(--accent);
+      margin-bottom: 6px;
     }
 
     .tl-title {
@@ -515,7 +547,7 @@
       color: var(--text);
       margin-bottom: 8px;
       font-weight: 400;
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
     .tl-desc {
@@ -534,9 +566,9 @@
     }
 
     .service {
-      padding: 26px 22px;
+      padding: 28px 24px;
       background: rgba(255, 255, 255, 0.015);
-      border: 1px solid rgba(217, 154, 138, 0.12);
+      border: 1px solid rgba(217, 119, 87, 0.14);
       border-radius: 2px;
       transition: all 0.4s;
       position: relative;
@@ -550,13 +582,14 @@
       left: 0;
       width: 0;
       height: 1px;
-      background: var(--gold);
+      background: var(--accent);
       transition: width 0.5s;
     }
 
     .service:hover {
-      background: rgba(217, 154, 138, 0.04);
-      border-color: rgba(217, 154, 138, 0.32);
+      background: rgba(217, 119, 87, 0.05);
+      border-color: rgba(217, 119, 87, 0.35);
+      transform: translateY(-2px);
     }
 
     .service:hover::before { width: 100%; }
@@ -565,9 +598,9 @@
       font-family: "Cormorant Garamond", Georgia, serif;
       font-size: 1rem;
       font-style: italic;
-      color: var(--gold);
-      opacity: 0.65;
-      margin-bottom: 8px;
+      color: var(--accent);
+      opacity: 0.7;
+      margin-bottom: 10px;
       display: block;
     }
 
@@ -582,8 +615,8 @@
     /* ============ DEVELOPER ============ */
     .project {
       padding: 40px;
-      background: linear-gradient(135deg, rgba(217, 154, 138, 0.04), rgba(255, 255, 255, 0.01));
-      border: 1px solid rgba(217, 154, 138, 0.15);
+      background: linear-gradient(135deg, rgba(217, 119, 87, 0.05), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(217, 119, 87, 0.18);
       border-radius: 2px;
       position: relative;
     }
@@ -591,11 +624,11 @@
     .project::before {
       content: "◆";
       position: absolute;
-      top: -12px;
-      left: 36px;
+      top: -11px;
+      left: 40px;
       background: var(--bg);
-      color: var(--gold);
-      padding: 0 12px;
+      color: var(--accent);
+      padding: 0 14px;
       font-size: 0.95rem;
     }
 
@@ -608,40 +641,41 @@
       letter-spacing: 0.01em;
     }
 
-    .project p { font-size: 1.08rem; }
+    .project p { font-size: 1.1rem; }
 
     /* ============ CONTACT ============ */
     .contact-links {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
-      margin-top: 26px;
+      margin-top: 28px;
     }
 
     .contact-links a {
       padding: 14px 30px;
-      border: 1px solid var(--gold-dim);
+      border: 1px solid var(--accent-dim);
       border-radius: 40px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 0.2em;
       transition: all 0.35s;
       background: transparent;
+      font-weight: 500;
     }
 
     .contact-links a:hover {
-      background: var(--gold);
+      background: var(--accent);
       color: var(--bg);
-      border-color: var(--gold);
+      border-color: var(--accent);
       transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(217, 154, 138, 0.25);
+      box-shadow: 0 10px 30px var(--accent-glow);
     }
 
     /* ============ FOOTER ============ */
     .footer {
       margin-top: 130px;
       padding-top: 44px;
-      border-top: 1px solid var(--gold-dim);
+      border-top: 1px solid var(--accent-dim);
       text-align: center;
       color: var(--dim);
       font-family: "Cormorant Garamond", Georgia, serif;
@@ -653,12 +687,12 @@
     .footer .film-end {
       display: inline-block;
       margin-top: 14px;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       font-family: "Inter", sans-serif;
       font-style: normal;
       text-transform: uppercase;
-      letter-spacing: 0.4em;
-      color: var(--gold);
+      letter-spacing: 0.45em;
+      color: var(--accent);
       opacity: 0.6;
     }
 
@@ -667,15 +701,16 @@
       body { font-size: 16px; }
       .container { padding: 60px 22px 50px; }
       .hero { margin-bottom: 90px; }
-      .about-grid { grid-template-columns: 1fr; gap: 20px; }
+      .portrait-wrap { width: 190px; height: 190px; }
+      .about-grid { grid-template-columns: 1fr; gap: 24px; }
       .award-photos { grid-template-columns: 1fr; }
-      .award-photos img { height: 300px; }
-      .award-year { font-size: 1.4rem; }
-      .award-title-line { font-size: 1.6rem; }
-      .about-intro { font-size: 1.5rem; }
-      .tl-title { font-size: 1.35rem; }
-      section { margin-bottom: 85px; }
-      .contact-links a { flex: 1; text-align: center; }
+      .award-photos img { height: 280px; }
+      .award-header { gap: 14px; }
+      .award-year { font-size: 2.4rem; }
+      .award-card h3 { font-size: 1.55rem; }
+      section { margin-bottom: 90px; }
+      .contact-links a { flex: 1; text-align: center; padding: 14px 20px; }
+      .tagline { font-size: 1.25rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -713,8 +748,8 @@
       <div class="about-grid">
         <div>
           <p class="about-intro">
-            A <span class="accent">self-taught visual storyteller</span> from Chennai — moving
-            between sound, story, and light.
+            A <span class="accent">self-taught visual storyteller</span> from Chennai —
+            moving between sound, story, and light.
           </p>
           <p>
             I started as an <strong>Audio Engineer</strong> in 2019, working on Tamil television
@@ -725,6 +760,12 @@
             By 2024 I had grown into <strong>Cinematography</strong> and <strong>Direction</strong>,
             while continuing freelance candid photography since 2019.
           </p>
+
+          <div class="degree">
+            <strong>B.Sc. Visual Communication</strong><br>
+            <span class="deg-year">2017 – 2020</span> · Foundation in film theory, visual design
+            and media studies — the base I built everything else on.
+          </div>
         </div>
         <div>
           <p>
@@ -752,10 +793,10 @@
       <div class="award-card">
         <div class="award-header">
           <div class="award-year">2025</div>
-          <div class="award-title-line">
-            Emerging Cinematographer of the Year<span class="dot">·</span><span class="category">television</span>
+          <div class="award-title-block">
+            <h3>Emerging Cinematographer of the Year</h3>
+            <div class="award-sub">Television<span class="dot">·</span>Highwoods Entertainment</div>
           </div>
-          <div class="award-org-line">Highwoods Entertainment</div>
         </div>
         <div class="award-info">
           <p>Presented by actress Nalini and actor Vaiyapuri for outstanding work in Tamil television.</p>
@@ -769,10 +810,10 @@
       <div class="award-card">
         <div class="award-header">
           <div class="award-year">2025</div>
-          <div class="award-title-line">
-            Television Cinematographer
+          <div class="award-title-block">
+            <h3>Television Cinematographer</h3>
+            <div class="award-sub">Television<span class="dot">·</span>Shanmuga Hospital and Trust</div>
           </div>
-          <div class="award-org-line">Shanmuga Hospital and Trust</div>
         </div>
         <div class="award-info">
           <p>Recognition for cinematography work in Tamil television.</p>
@@ -807,7 +848,7 @@
       </div>
     </section>
 
-    <!-- ============ JOURNEY ============ -->
+    <!-- ============ JOURNEY / TIMELINE ============ -->
     <section>
       <h2>The Journey</h2>
 
@@ -947,7 +988,7 @@
           and Material 3. ViMusic-inspired vertical rail, dynamic Material You colors, inline
           Settings navigation, and a custom updater.
         </p>
-        <p style="margin-top: 20px;">
+        <p style="margin-top: 22px;">
           <a href="https://github.com/callix-tamilvanan/blackpulse">View on GitHub →</a>
         </p>
       </div>
