@@ -35,6 +35,7 @@
       z-index: 2;
     }
 
+    /* HERO */
     .hero { text-align: center; margin-bottom: 100px; }
 
     .award-placeholder {
@@ -70,6 +71,7 @@
       font-weight: 500;
     }
 
+    /* SECTIONS */
     section { margin-bottom: 80px; }
 
     h2 {
@@ -95,81 +97,82 @@
     a:hover { color: #e8e4dc; border-bottom-color: #e8e4dc; }
 
     /* AWARDS */
-    .award-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-
     .award-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
       padding: 24px;
       background: rgba(255, 255, 255, 0.02);
       border-left: 2px solid #c9a961;
       border-radius: 4px;
     }
 
-    .award-card .photos {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
+    .award-card .award-info h3 {
+      font-family: Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #e8e4dc;
+      margin-bottom: 8px;
     }
 
-    .award-card .photos img {
-      width: calc(50% - 6px);
-      border-radius: 4px;
+    .award-card .award-info .award-org {
+      color: #c9a961;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 12px;
+    }
+
+    .award-card .award-info p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .award-card .award-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .award-card .award-photos img {
+      width: 100%;
+      height: 140px;
       object-fit: cover;
-      aspect-ratio: 1 / 1;
+      border-radius: 4px;
+      border: 1px solid rgba(201, 169, 97, 0.15);
       filter: contrast(1.05) saturate(0.95);
     }
 
-    .award-card h3 {
-      font-family: Georgia, serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: #e8e4dc;
-      margin-bottom: 6px;
-    }
-
-    .award-card .award-meta {
-      color: #7a766c;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .award-card .presenter {
-      color: #c9a961;
-    }
-
-    /* MUSIC VIDEO */
+    /* VIDEO */
     .video-wrap {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #000;
+      padding-bottom: 56.25%; /* 16:9 aspect */
+      margin-bottom: 16px;
       border-radius: 4px;
       overflow: hidden;
-      margin-bottom: 16px;
+      border: 1px solid rgba(201, 169, 97, 0.15);
     }
 
     .video-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       border: none;
     }
 
-    .video-info .title {
-      color: #e8e4dc;
-      font-size: 1.1rem;
-      margin-bottom: 6px;
+    .video-meta {
+      font-size: 0.9rem;
+      color: #7a766c;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
 
-    .video-info .meta {
-      color: #7a766c;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+    .video-meta .role {
+      color: #c9a961;
     }
 
     /* CREDITS */
@@ -215,6 +218,24 @@
 
     .credit-group-label:first-child { margin-top: 0; }
 
+    /* SERVICES */
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .services span {
+      padding: 8px 16px;
+      background: rgba(201, 169, 97, 0.08);
+      border: 1px solid rgba(201, 169, 97, 0.2);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #c9a961;
+      letter-spacing: 0.05em;
+    }
+
     /* PROJECT */
     .project {
       padding: 24px;
@@ -237,6 +258,7 @@
     .contact-links { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 16px; }
     .contact-links a { border-bottom: none; padding-bottom: 2px; border-bottom: 1px solid rgba(201, 169, 97, 0.4); }
 
+    /* FOOTER */
     .footer {
       margin-top: 100px;
       padding-top: 32px;
@@ -247,100 +269,102 @@
       letter-spacing: 0.1em;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       h1 { font-size: 2.5rem; }
       .container { padding: 60px 20px 40px; }
-      .award-card .photos img { width: 100%; }
+      .award-card { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- HERO -->
     <div class="hero">
       <div class="award-placeholder">T</div>
       <h1>Tamilvanan</h1>
       <div class="roles">Cinematographer · Director · Developer</div>
     </div>
 
+    <!-- ABOUT -->
     <section>
       <h2>About</h2>
       <p>
-        I started my career as an <strong>Audio Engineer</strong> in 2019, working on Tamil
-        television shows for Vijay TV, Sun TV, Zee Thamizh, and Puthiya Thalaimurai through
-        Pro Media MJR Lights and Sounds.
+        I started my career as an <strong>Audio Engineer</strong> in 2019, working on television
+        shows for Vijay TV, Sun TV, Zee Thamizh, and Puthiya Thalaimurai through Pro Media MJR
+        Lights and Sounds.
       </p>
       <p>
-        When COVID lockdowns shut down production, I pivoted to <strong>Assistant
-        Direction</strong> — first on Raj TV's Pongal special, then Captain TV's
-        <em>Kolaru Kudumbam</em>. In 2023 I joined Makkal TV's <em>Punnagai Mannargal</em>
-        as Assistant Director, moved into Associate Direction for two months, and by 2024
-        had grown into the role of <strong>Cinematographer</strong> on the same production.
+        When the COVID lockdowns shut down production in 2020, I pivoted into
+        <strong>Assistant Direction</strong> — first on Raj TV's Pongal special, then Captain TV's
+        <em>Kolaru Kudumbam</em>, and eventually Makkal TV's <em>Punnagai Mannargal</em>.
       </p>
       <p>
-        Alongside television, I've worked as a freelance photographer since 2019, with a
-        focus on <strong>candid photography</strong>. I also work in
-        <strong>event management</strong> — coordinating DJ performances and sound system
-        setups — and I do <strong>pyrotechnics</strong> for stage shows.
+        I moved into <strong>Associate Direction</strong> and then, by 2024, into
+        <strong>Cinematography</strong>. Alongside my TV work, I've been a freelance photographer
+        since 2019, focusing on candid photography. I also work in event management — coordinating
+        DJ performances and sound system setups — and I do pyrotechnics for stage shows.
       </p>
       <p>
-        I'm a fast learner who adapts quickly to any situation, and I'm comfortable
-        leading and managing a team. I hold a Bachelor's degree in Visual Communication
-        (BSc Viscom, 2017–2020).
-      </p>
-      <p>
-        I'm currently building <strong>Black Pulse</strong> — a free and open-source
-        music player for Android.
+        I'm a fast learner who adapts quickly to any situation, and I'm comfortable leading and
+        managing a team.
       </p>
     </section>
 
+    <!-- AWARDS -->
     <section>
       <h2>Awards</h2>
-      <div class="award-grid">
-        <div class="award-card">
-          <div class="photos">
-            <img src="award-highwoods-celeb.jpeg" alt="Tamilvanan with Nalini and Vaiyapuri at the Highwoods Entertainment awards">
-            <img src="award-highwoods-trophy.jpeg" alt="Highwoods Entertainment award trophy">
-          </div>
-          <h3>Emerging Cinematographer of the Year</h3>
-          <div class="award-meta">
-            <span class="presenter">Highwoods Entertainment</span> · Television<br>
-            Presented by actress Nalini and actor Vaiyapuri
-          </div>
-        </div>
 
-        <div class="award-card">
-          <div class="photos">
-            <img src="award-shanmuga-stage.jpeg" alt="Tamilvanan receiving the Shanmuga Hospital and Trust award on stage">
-            <img src="award-shanmuga-trophy.jpeg" alt="Shanmuga Hospital and Trust award trophy">
-          </div>
+      <div class="award-card">
+        <div class="award-info">
+          <h3>Emerging Cinematographer of the Year</h3>
+          <div class="award-org">Highwoods Entertainment · Television</div>
+          <p>Presented by actress Nalini and actor Vaiyapuri.</p>
+        </div>
+        <div class="award-photos">
+          <img src="award-highwoods-celeb.jpeg" alt="With Nalini and Vaiyapuri">
+          <img src="award-highwoods-trophy.jpeg" alt="Emerging Cinematographer of the Year trophy">
+        </div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-info">
           <h3>Television Cinematographer</h3>
-          <div class="award-meta">
-            <span class="presenter">Shanmuga Hospital and Trust</span>
-          </div>
+          <div class="award-org">Shanmuga Hospital and Trust</div>
+          <p>Recognition for cinematography work in Tamil television.</p>
+        </div>
+        <div class="award-photos">
+          <img src="award-shanmuga-stage.jpeg" alt="Receiving the Television Cinematographer award">
+          <img src="award-shanmuga-trophy.jpeg" alt="Television Cinematographer trophy">
         </div>
       </div>
     </section>
 
+    <!-- DIRECTION -->
     <section>
       <h2>Direction</h2>
+
       <div class="video-wrap">
         <iframe
           src="https://www.youtube.com/embed/kKxjJwRL3eQ"
-          title="Kanmaniye — UNICORN TAMIL ORGINALS"
+          title="Kanmaniye — Unicorn Tamil"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
         </iframe>
       </div>
-      <div class="video-info">
-        <div class="title">கண்மணியே — Kanmaniye</div>
-        <div class="meta">UNICORN TAMIL ORGINALS · Music Video · 2024 · Director</div>
+      <div class="video-meta">
+        <span class="role">Director</span> ·
+        <span>கண்மணியே (Kanmaniye)</span> ·
+        <span>Unicorn Tamil Originals</span> ·
+        <span>2024</span>
       </div>
     </section>
 
+    <!-- CREDITS -->
     <section>
       <h2>Selected Credits</h2>
 
-      <div class="credit-group-label">Cinematography & Direction</div>
+      <div class="credit-group-label">Direction & Cinematography</div>
       <ul class="credits">
         <li>
           <span class="title">Punnagai Mannargal (Tele Film)</span>
@@ -427,25 +451,43 @@
           </div>
         </li>
       </ul>
+    </section>
 
-      <div class="credit-group-label">Other Work</div>
+    <!-- SERVICES -->
+    <section>
+      <h2>Services</h2>
+      <div class="services">
+        <span>Cinematography</span>
+        <span>Direction</span>
+        <span>Audio Engineering</span>
+        <span>Event Management</span>
+        <span>Pyrotechnics</span>
+        <span>Candid Photography</span>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section>
+      <h2>Experience</h2>
       <ul class="credits">
         <li>
-          <span class="title">Freelance Photographer · Candid Photography</span>
+          <span class="title">Freelance Photographer</span>
           <div class="meta">
             <span class="channel">Chennai, India</span>
             <span class="period">2019 – Present</span>
           </div>
         </li>
         <li>
-          <span class="title">Event Management · Pyrotechnics</span>
+          <span class="title">Audio Engineer — Pro Media MJR Lights and Sounds</span>
           <div class="meta">
-            <span class="channel">DJ performance coordination · Stage pyro</span>
+            <span class="channel">Chennai, India</span>
+            <span class="period">Jul 2019 – Mar 2020</span>
           </div>
         </li>
       </ul>
     </section>
 
+    <!-- DEVELOPER -->
     <section>
       <h2>Developer</h2>
       <div class="project">
@@ -461,6 +503,7 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section>
       <h2>Contact</h2>
       <p>For collaborations, freelance work, or questions:</p>
